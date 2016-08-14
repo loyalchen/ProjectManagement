@@ -1,0 +1,38 @@
+{
+  "name": "projectmanagement",
+  "version": "1.0.0",
+  "description": "everything in projects",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TedForV/ProjectManagement.git"
+  },
+  "author": "TedForV",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TedForV/ProjectManagement/issues"
+  },
+  "homepage": "https://github.com/TedForV/ProjectManagement#readme",
+  "dependencies": {
+    "babel-core": "^6.13.2",
+    "babel-plugin-transform-async-to-generator": "^6.8.0",
+    "babel-preset-es2015-node5": "^1.2.0",
+    "babel-preset-stage-3": "^6.11.0",
+    "babel-register": "^6.11.6",
+    "immutable": "^3.8.1",
+    "keymirror": "^0.1.1",
+    "koa": "^2.0.0-alpha.4",
+    "moment": "^2.14.1",
+    "react": "^15.3.0",
+    "react-dom": "^15.3.0",
+    "react-redux": "^4.4.5",
+    "redux": "^3.5.2"
+  },
+  "devDependencies": {
+    "eslint": "^3.2.2",
+    "redux-devtools": "^3.3.1"
+  }
+}
