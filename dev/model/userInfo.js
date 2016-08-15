@@ -1,4 +1,5 @@
 import _ from 'underscore';
+import UserProjectInfo from './userProjectInfo';
 
 /**
  * [ownProjects description]
