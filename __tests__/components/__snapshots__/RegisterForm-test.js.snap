@@ -1,0 +1,29 @@
+exports[`test renders correctly 1`] = `
+<form>
+  <div>
+    <input
+      id="userName"
+      placeholder="Please type your account"
+      type="text"
+      value="Loychen" />
+    <label>
+      UserName
+    </label>
+  </div>
+  <div>
+    <input
+      placeholder="Please type your password"
+      type="text"
+      value="123456" />
+    <label>
+      Password
+    </label>
+  </div>
+  <div>
+    <button
+      type="submit">
+      Register
+    </button>
+  </div>
+</form>
+`;
