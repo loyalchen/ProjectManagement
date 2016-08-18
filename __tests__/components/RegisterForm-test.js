@@ -18,6 +18,54 @@ it('renders correctly', () => {
     expect(tree).toMatchSnapshot();
 });
 
+const drinkAll = (fn, flavor) => {
+    if (flavor === "lemon") {
+        fn();
+    }
+};
+
+const applyToAllFlavors = fn => {
+    fn("mango");
+};
+
+describe('applying to all flavors', () => {
+    it('does mango last', () => {
+        let drink = jest.fn();
+        applyToAllFlavors(drink);
+        expect(drink).lastCalledWith('mango');
+    });
+});
+
+describe('drinkAll', () => {
+    it('drinks something lemon-flavored', () => {
+        let drink = jest.fn();
+        drinkAll(drink, 'lemon');
+        expect(drink).toBeCalled();
+    });
+
+    it('does not drink something octopus-flavored', () => {
+        let drink = jest.fn();
+        drinkAll(drink, 'octopus');
+        expect(drink).not.toBeCalled();
+    });
+});
+
+describe('adding numbers', () => {
+    it('works sanely with simple decimals', () => {
+        expect(0.2 + 0.1).toBeCloseTo(0.3);
+    });
+});
+
+
+const fetchNewFlavorIdear = function () {
+    return "oranage";
+};
+describe('fetching new flavor idears', () => {
+    it('returns something', () => {
+        expect(fetchNewFlavorIdear()).toBeDefined();
+    });
+});
+
 // describe('RegisterForm is awesome', () => {
 //     const formState = {
 //         "userName": "Loychen",
