@@ -3,6 +3,7 @@ exports[`test renders correctly 1`] = `
   <div>
     <input
       id="userName"
+      onChange={[Function bound userNameChange]}
       placeholder="Please type your account"
       type="text"
       value="Loychen" />
@@ -12,6 +13,7 @@ exports[`test renders correctly 1`] = `
   </div>
   <div>
     <input
+      onChange={[Function bound passwordChange]}
       placeholder="Please type your password"
       type="text"
       value="123456" />

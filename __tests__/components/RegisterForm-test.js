@@ -1,19 +1,19 @@
 jest.unmock('../../dev/components/RegisterForm');
+jest.unmock('immutable');
 
+import Immutable from 'immutable';
 import React from 'react';
-// import ReactDOM from 'react-dom';
-// import TestUtils from 'react-addons-test-utils';
 import RegisterForm from '../../dev/components/RegisterForm';
 import renderer from 'react-test-renderer';
 
-const formState = {
+const data = Immutable.fromJS({
     "userName": "Loychen",
     "password": "123456"
-};
+});
 
 it('renders correctly', () => {
     const tree = renderer.create(
-        <RegisterForm data={formState} />
+        <RegisterForm data={data} />
     ).toJSON();
     expect(tree).toMatchSnapshot();
 });
