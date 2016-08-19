@@ -13,9 +13,10 @@ class RegisterPage extends Component {
     }
 
     render() {
+        let data = store.getState().get('formState');
         return (
             <div>
-                <RegisterForm data = {store.getState().formState} dispatch={store.dispatch} />
+                <RegisterForm data = {data} dispatch={store.dispatch} />
             </div>
         );
     }

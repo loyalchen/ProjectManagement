@@ -1,5 +1,4 @@
 import React, {PropTypes, Component} from 'react';
-import assign from 'object-assign';
 
 class RegisterForm extends Component {
     constructor(props) {
@@ -10,25 +9,16 @@ class RegisterForm extends Component {
 
     userNameChange(e) {
         e.preventDefault();
-        var newState = this.mergeWithCurrentState({
-            userName: e.target.value
-        });
-
+        var newState = this.props.data.set('userName', e.target.value);
         this.emitChange(newState);
     }
 
     passwordChange(e) {
         e.preventDefault();
-        var newState = this.mergeWithCurrentState({
-            password: e.target.value
-        });
-
+        var newState = this.props.data.set('password', e.target.value);
         this.emitChange(newState);
     }
 
-    mergeWithCurrentState(change) {
-        return assign(this.props.data, change);
-    }
 
     emitChange(newState) {
         this.props.dispatch({
@@ -38,14 +28,16 @@ class RegisterForm extends Component {
     }
 
     render() {
+        let userName = this.props.data.get('userName');
+        let password = this.props.data.get('password');
         return (
             <form>
                 <div>
-                    <input type="text" id="userName" placeholder="Please type your account" value={this.props.data.userName} onChange = {this.userNameChange}/>
+                    <input type="text" id="userName" placeholder="Please type your account" value={userName} onChange = {this.userNameChange}/>
                     <label>UserName</label>
                 </div>
                 <div>
-                    <input type="text" placeholder="Please type your password" value={this.props.data.password} onChange = {this.passwordChange}/>
+                    <input type="text" placeholder="Please type your password" value={password} onChange = {this.passwordChange}/>
                     <label>Password</label>
                 </div>
                 <div>
