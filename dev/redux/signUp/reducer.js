@@ -1,4 +1,3 @@
-import objectAssign from 'object-assign';
 import Immutable from 'immutable';
 
 const initialState = Immutable.fromJS({
