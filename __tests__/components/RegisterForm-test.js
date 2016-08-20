@@ -6,25 +6,25 @@ import React from 'react';
 import RegisterForm from '../../dev/components/RegisterForm';
 import renderer from 'react-test-renderer';
 
-const data = Immutable.fromJS({
+let data = Immutable.fromJS({
     "userName": "Loychen",
     "password": "123456"
 });
 
 it('renders correctly', () => {
-    const tree = renderer.create(
+    let tree = renderer.create(
         <RegisterForm data={data} />
     ).toJSON();
     expect(tree).toMatchSnapshot();
 });
 
-const drinkAll = (fn, flavor) => {
+let drinkAll = (fn, flavor) => {
     if (flavor === "lemon") {
         fn();
     }
 };
 
-const applyToAllFlavors = fn => {
+let applyToAllFlavors = fn => {
     fn("mango");
 };
 
@@ -57,7 +57,7 @@ describe('adding numbers', () => {
 });
 
 
-const fetchNewFlavorIdear = function () {
+let fetchNewFlavorIdear = function () {
     return "oranage";
 };
 describe('fetching new flavor idears', () => {
@@ -67,15 +67,15 @@ describe('fetching new flavor idears', () => {
 });
 
 // describe('RegisterForm is awesome', () => {
-//     const formState = {
+//     let formState = {
 //         "userName": "Loychen",
 //         "password": "123456"
 //     };
 
 //     it('renders correctly', () => {
-//         const form = TestUtils.renderIntoDocument(<RegisterForm data={formState}/>);
+//         let form = TestUtils.renderIntoDocument(<RegisterForm data={formState}/>);
 
-//         const formNode = ReactDOM.findDOMNode(form);
+//         let formNode = ReactDOM.findDOMNode(form);
 //         expect(formNode).toBe("Loychen");
 //     });
 // });
