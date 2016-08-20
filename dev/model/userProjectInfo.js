@@ -14,15 +14,15 @@ class UserProjectInfo extends Record({
 	 * @param  {projectId, roleIds, showName} props {[description]}
 	 * @return {[type]}       [description]
 	 */
-	constructor(props) {
-		if (!props) {
-			throw new Error('props can\'t be null.')
-		}
-		super();
-		this.projectId = props.projectId || 0;
-		this.roleIds = List(props.roleIds) || List([]);
-		this.showName = props.showName || '';
-	}
+	// constructor(props) {
+	// 	if (!props) {
+	// 		throw new Error('props can\'t be null.')
+	// 	}
+	// 	super();
+	// 	this.projectId = props.projectId || 0;
+	// 	this.roleIds = List(props.roleIds) || List([]);
+	// 	this.showName = props.showName || '';
+	// }
 
 }
 

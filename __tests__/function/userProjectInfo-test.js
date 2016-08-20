@@ -1,5 +1,7 @@
 jest.unmock('../dev/model/userProjectInfo');
+jest.unmock('immutable');
 import UserProjectInfo from '../dev/model/userProjectInfo';
+import {List,Record} from 'immutable';
 
 //run npm test
 describe('userProjectInfo', () => {
