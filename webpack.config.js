@@ -3,7 +3,7 @@ module.exports = {
 		signUp:"./dev/redux/signUp/index.js",
 	},
 	output: {
-		path: __dirname + "/public/js/",
+		path: __dirname + "/public/built/",
 		filename: '[name].js'
 	},
 	module: {

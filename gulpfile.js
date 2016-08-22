@@ -7,13 +7,13 @@ gulp.task('default', () => {
         .pipe(gulp.dest('./public/css'));
 
     gulp.src('./node_modules/jquery/dist/*.min.js')
-        .pipe(gulp.dest('./public/js'));
+        .pipe(gulp.dest('./public/jsLib'));
 
     gulp.src('./node_modules/bootstrap/fonts/*')
         .pipe(gulp.dest('./public/fonts'));
 
     gulp.src('./node_modules/bootstrap/dist/js/*.min.js')
-        .pipe(gulp.dest('./public/js'));
+        .pipe(gulp.dest('./public/jsLib'));
 
     gulp.src('./dev/css/*')
         .pipe(minifyCss())

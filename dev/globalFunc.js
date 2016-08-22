@@ -33,5 +33,15 @@ module.exports = {
 					}
 				});
 		});
+	},
+
+	/**
+	 * [isEmailFormatCorrect description]
+	 * @param  {[type]}  email [description]
+	 * @return {Boolean}       [description]
+	 */
+	isEmailFormatCorrect: function(email) {
+		var emailRegExp = /[a-z0-9]{1,30}@[a-z0-9]{1,65}.[a-z]{3}/;
+		return emailRegExp.test(email);
 	}
 }
