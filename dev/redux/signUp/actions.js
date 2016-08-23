@@ -66,5 +66,6 @@ function isValideName(name) {
 }
 
 module.exports = {
-	isValideEmail: isValideEmail
+	isValideEmail: isValideEmail,
+	isValideName:isValideName
 }
