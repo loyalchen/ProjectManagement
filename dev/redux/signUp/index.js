@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import SignUp from '../signUp/containers/signUp.js';
 import {render} from 'react-dom';
-import { createStore } from 'redux';
+import { createStore,applyMiddleware  } from 'redux';
 import signUpReducer from './reducer';
 import { Provider } from 'react-redux';
+import ReduxThunk from 'redux-thunk';
 
-let store = createStore(signUpReducer);
+let store = createStore(signUpReducer,applyMiddleware(ReduxThunk));
 
 render(
     <Provider store={store}>

@@ -57,6 +57,16 @@ class RegisterForm extends Component {
         };
     }
 
+    // shouldComponentUpdate(nextProps,nextState){
+    //     if(nextProps === this.props){
+    //         return false;
+    //     }
+    //     if(nextState === this.state){
+    //         return false;
+    //     }
+    //     return true;
+    // }
+
     componentWillReceiveProps(nextProps){
         this.setState(this._getStateFromProps(nextProps));
     }

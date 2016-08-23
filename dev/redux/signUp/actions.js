@@ -13,42 +13,44 @@ let _emailCheckUrl = '/validate/isExistedEmail';
  * @return {Boolean}       [description]
  */
 function isValideEmail(email) {
-	if (!gFunc.isEmailFormatCorrect(email)) {
-		return {
-			type: constant.CHECK_EMAIL_VALID,
-			emailCheck: Immutalbe.fromJS({
-				isCorrectFormat: false,
-				isExisted: null,
-				canbeUsed: null,
-				fetchError: null
-			})
-		};
-	}
-	gFunc.noCacheGETRequest(_emailCheckUrl, {
-			e: email
-		})
-		.then(function(err, res) {
-			return {
+	return (dispatch) => {
+		if (!gFunc.isEmailFormatCorrect(email)) {
+			dispatch({
 				type: constant.CHECK_EMAIL_VALID,
 				emailCheck: Immutalbe.fromJS({
-					isCorrectFormat: res.body.isCorrectFormat,
-					isExisted: res.body.isExisted,
-					canbeUsed: res.body.canbeUsed,
-					fetchError: null
-				})
-
-			};
-		}, function(err, res) {
-			return {
-				type: constant.CHECK_EMAIL_VALID,
-				emailCheck: Immutalbe.fromJS({
-					isCorrectFormat: null,
+					isCorrectFormat: false,
 					isExisted: null,
 					canbeUsed: null,
-					fetchError: err.message
+					fetchError: null
 				})
-			};
-		})
+			});
+		}
+		gFunc.noCacheGETRequest(_emailCheckUrl, {
+				e: email
+			})
+			.then(function(err, res) {
+				dispatch({
+					type: constant.CHECK_EMAIL_VALID,
+					emailCheck: Immutalbe.fromJS({
+						isCorrectFormat: res.body.isCorrectFormat,
+						isExisted: res.body.isExisted,
+						canbeUsed: res.body.canbeUsed,
+						fetchError: null
+					})
+
+				});
+			}, function(err, res) {
+				dispatch({
+					type: constant.CHECK_EMAIL_VALID,
+					emailCheck: Immutalbe.fromJS({
+						isCorrectFormat: null,
+						isExisted: null,
+						canbeUsed: null,
+						fetchError: err.message
+					})
+				});
+			})
+	}
 }
 
 function isValideName(name) {

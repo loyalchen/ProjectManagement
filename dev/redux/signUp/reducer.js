@@ -18,11 +18,11 @@ let initialState = Immutable.fromJS({
 		canBeUsed: true,
 		fetchError: null
 	},
-	nameCheck:{
-		isCorrectFormat:true,
-		isExisted:false,
-		canBeUsed:true,
-		fetchError:null
+	nameCheck: {
+		isCorrectFormat: true,
+		isExisted: false,
+		canBeUsed: true,
+		fetchError: null
 	}
 });
 
@@ -31,9 +31,9 @@ export default function signUpReducer(state = initialState, action) {
 		// case 'CHANGE_FORM':
 		// 	return state.set('formState', action.newState);
 		case constant.CHECK_EMAIL_VALID:
-			return state.set('emailCheck',actin.emailCheck);
+			return state.set('emailCheck', action.emailCheck);
 		case constant.CHECK_USERNAME_VALID:
-			return state.set('nameCheck',action.nameCheck);
+			return state.set('nameCheck', action.nameCheck);
 		default:
 			return state;
 	}
