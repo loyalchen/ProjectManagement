@@ -4,8 +4,10 @@
   "description": "everything in projects",
   "main": "main.js",
   "scripts": {
+    "gulp":"gulp",
     "webpack": "webpack --process --color --watch",
-    "test": "jest --watch"
+    "test": "jest --watch",
+    "start":"npm run gulp & npm run webpack"
   },
   "repository": {
     "type": "git",

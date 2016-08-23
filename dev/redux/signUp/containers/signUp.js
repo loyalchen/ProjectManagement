@@ -15,14 +15,14 @@ function getEmailError(emailCheck) {
 }
 
 function getErrorMsg(checkInfo, objName) {
-	if (!checkInfo.isCorrectFormat) {
+	if (!checkInfo.get('isCorrectFormat')) {
 		return `The ${objName} is not valid.`;
-	} else if (!checkInfo.isExisted) {
+	} else if (checkInfo.get('isExisted')) {
 		return `The ${objName} is already existed.`;
-	} else if (!checkInfo.canBeUsed) {
+	} else if (!checkInfo.get('canBeUsed')) {
 		return `The ${objName} can not be used.`;
-	} else if (checkInfo.fetchError) {
-		return checkInfo.fetchError;
+	} else if (checkInfo.get('fetchError')) {
+		return checkInfo.get('fetchError');
 	} else {
 		return null;
 	}

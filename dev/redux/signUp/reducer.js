@@ -13,15 +13,15 @@ let initialState = Immutable.fromJS({
 	name: '',
 	pwd: '',
 	emailCheck: {
-		isCorrectFormat: null,
-		isExisted: null,
-		canBeUsed: null,
+		isCorrectFormat: true,
+		isExisted: false,
+		canBeUsed: true,
 		fetchError: null
 	},
 	nameCheck:{
-		isCorrectFormat:null,
-		isExisted:null,
-		canBeUsed:null,
+		isCorrectFormat:true,
+		isExisted:false,
+		canBeUsed:true,
 		fetchError:null
 	}
 });
