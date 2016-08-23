@@ -14,11 +14,11 @@ describe('localLog',()=>{
 
 describe('isEmailFormatCorrect',()=>{
 	it('correct email return true',()=>{
-		let email = 'test-01@aaa.com';
+		let email = 'tedforv@outlook.com';
 		expect(isEmailFormatCorrect(email)).toBeTruthy();
 	});
 	it('wrong email return false',()=>{
 		let email = 'test01';
-		expect(isEmailFormatCorrect(email)).toBeFalsy();
+		expect(isEmailFormatCorrect(email)).toBeFalsy(); 
 	});
 });

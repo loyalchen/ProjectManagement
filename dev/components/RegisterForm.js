@@ -8,19 +8,19 @@ class RegisterForm extends Component {
     constructor(props) {
         super(props);
         this.state = this._getStateFromProps(this.props);
-        this._handleNameCheckClick = this._handleNameCheckClick.bind(this);
-        this._handleEmailCheckClick = this._handleEmailCheckClick.bind(this);
+        this._handleNameCheck = this._handleNameCheck.bind(this);
+        this._handleEmailCheck = this._handleEmailCheck.bind(this);
         this._nameChange = this._nameChange.bind(this);
         this._pwdChange = this._pwdChange.bind(this);
         this._emailChange = this._emailChange.bind(this);
     }
 
-    _handleNameCheckClick(e) {
+    _handleNameCheck(e) {
         e.preventDefault();
         this.props.nameCheck(this.state.name);
     }
 
-    _handleEmailCheckClick(e) {
+    _handleEmailCheck(e) {
         e.preventDefault();
         if (gFunc.isEmailFormatCorrect(this.state.email)){
             this.props.emailCheck(this.state.email);
@@ -83,12 +83,12 @@ class RegisterForm extends Component {
             <form>
                 <div className={nameDivStyle}>
                     <input className="form-control" placeholder="Input user name." 
-                        value={this.state.name} onChange={this._nameChange}  onBlur={this._handleNameCheckClick} />
+                        value={this.state.name} onChange={this._nameChange}  onBlur={this._handleNameCheck} />
                     {nameError}
                 </div>
                 <div className={emailDivStyle}>
                     <input className="form-control" placeholder="Input your email" 
-                        value={this.state.email} onChange={this._emailChange}  onBlur={this._handleEmailCheckClick}/>
+                        value={this.state.email} onChange={this._emailChange}  onBlur={this._handleEmailCheck}/>
                     {emailError}
                 </div>
                 <div className="form-group">
