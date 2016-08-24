@@ -1,6 +1,7 @@
 module.exports = {
 	entry: {
-		signUp:"./dev/redux/signUp/index.js",
+		signUp: "./dev/redux/signUp/index.js",
+		task: "./dev/redux/task/index.js"
 	},
 	output: {
 		path: __dirname + "/public/built/",
@@ -11,20 +12,20 @@ module.exports = {
 			test: /\.css$/,
 			loader: "style!css"
 		}, {
-			test: /\.jsx?$/,
-			exclude: /(node_modules|bower_comonents)/,
-			loader: "babel",
-			query: {
-				presets: ["es2015", "react"]
-			}
-		}, {
-			test: /\.js$/,
-			exclude: /(node_modules|bower_comonents)/,
-			loader: "babel",
-			query: {
-				presets: ["es2015", "react"]
-			}
-		}]
+				test: /\.jsx?$/,
+				exclude: /(node_modules|bower_comonents)/,
+				loader: "babel",
+				query: {
+					presets: ["es2015", "react"]
+				}
+			}, {
+				test: /\.js$/,
+				exclude: /(node_modules|bower_comonents)/,
+				loader: "babel",
+				query: {
+					presets: ["es2015", "react"]
+				}
+			}]
 	},
 	resolve: {
 		alias: {

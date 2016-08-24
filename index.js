@@ -18,7 +18,7 @@ const view = Views('public/view', {
 });
 
 htmlRouter.get('/', (ctx, next) => {
-    return ctx.render('signUp');
+    return ctx.render('task');
 });
 
 
