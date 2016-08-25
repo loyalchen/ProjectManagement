@@ -21,8 +21,8 @@ htmlRouter.get('/', (ctx, next) => {
     return ctx.render('signUp');
 });
 
-htmlRouter.get('/test/task',(ctx, next)=>{
-    return ctx.render('task');
+htmlRouter.get('/test/:actionName',(ctx, next)=>{
+    return ctx.render(ctx.params.actionName);
 })
 
 app.use(logger());
