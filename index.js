@@ -18,9 +18,12 @@ const view = Views('public/view', {
 });
 
 htmlRouter.get('/', (ctx, next) => {
-    return ctx.render('task');
+    return ctx.render('signUp');
 });
 
+htmlRouter.get('/test/task',(ctx, next)=>{
+    return ctx.render('task');
+})
 
 app.use(logger());
 app.use(bodyParser());
