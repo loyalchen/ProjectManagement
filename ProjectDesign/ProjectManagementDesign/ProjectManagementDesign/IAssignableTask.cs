@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ProjectManagementDesign
 {
-    public interface IAssignableTask : ITimeControl, IChargeInfo, ILogInfo
-    {
+    public interface IAssignable : ITimeControl, IChargeInfo, ILogInfo {
+        string Title { get; set; }
+        string Tag { get; set; }
     }
 }
