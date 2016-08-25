@@ -9,19 +9,24 @@ class TaskCard extends Component {
     render() {
         var taskTags = this.props.tags.map(tag => {
             return (
-                <div key={tag}>
-                    <span></span>
+                <span className="tag" key={tag}>
+                    <span className="tag-label"></span>
                     <span>{tag}</span>
-                </div>
+                </span>
             );
         });
         return (
-            <div>
-                <div>
-                    {this.props.title}
-                </div>
-                <div>
-                    {taskTags}
+            <div className="task task-card">
+                <a className="check-box">
+                    <span className="icon icon-tick"></span>
+                </a>
+                <div className="task-content-set">
+                    <div>
+                        {this.props.title}
+                    </div>
+                    <div>
+                        {taskTags}
+                    </div>
                 </div>
             </div>
         );

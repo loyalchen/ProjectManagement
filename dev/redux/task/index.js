@@ -6,12 +6,12 @@ let taskObj = [
     {
         id: 1,
         title: 'TaskCard Test1',
-        tags: ['1', '2', '3']
+        tags: ['Holly', 'Shit', 'Babe','just a test tag']
     },
     {
         id: 2,
         title: 'TaskCard Test2',
-        tags: ['4', '5', '6']
+        tags: ['Guy', 'Gay']
     }
 ];
 
