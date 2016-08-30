@@ -143,6 +143,10 @@ class ScheduleInfo extends Record({
 
 		return true;
 	}
+
+	// _test(){
+	// 	this.set('ATE',moment('2016-08-01'));
+	// }
 }
 
 module.exports = ScheduleInfo;
