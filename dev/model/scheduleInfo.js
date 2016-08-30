@@ -31,7 +31,7 @@ class ScheduleInfo extends Record({
 	 * @return {[type]} [description]
 	 */
 	calculateActualCostMinutes() {
-		
+
 	}
 
 	/**
@@ -39,7 +39,7 @@ class ScheduleInfo extends Record({
 	 * @return {[type]} [description]
 	 */
 	compareMinutesWithEstimated() {
-
+		//TODO:
 	}
 
 	/**
@@ -47,45 +47,72 @@ class ScheduleInfo extends Record({
 	 * @return {[type]} [description]
 	 */
 	calculateSpanDays() {
-		ATS = tryParseMoment(ATS);
-		ATE = tryParseMoment(ATE);
-		let totalDays = 0,
-			tempDay = ATS,
-			tempWeekDay = null;
-		if (ATS && ATE) {
-			totalDays = ATE.diff(ATS, gStyle.constV.MOMENT_DAYS);
-		} else {
-			return null;
-		}
-
-		while (tempDay <= ATE) {
-			if (!_isWorkingDay(tempDay)) {
-				totalDays--;
-			}
-			tempDay.add(1, gStyle.constV.MOMENT_DAYS);
-		}
-
-		return totalDays;
-	}
+		let totalDays = this._calculateTotalCostTime(this.ATS, this.ATE, gStyle.constV.MOMENT_DAYS),
+			offDays = this._calculateOffDayTime(this.ATS, this.ATE, gStyle.constV.MOMENT_DAYS);
 
 
-	_calculateCostTime(fromTime, toTime,timeType){
-		let ft = tryParseMoment(fromTime),
-			tt = tryParseMoment(toTime),
-			totalDuration = 0;
-		if(ft && tt){
-			totalDuration = tt.diff(ft,timeType);
-		}else{
-			return null;
-		}
 
-		
-
+		return totalDays - offDays;
 	}
 
 	/**
-	 * [_isWeekend description]
-	 * @param  {[type]}  dateTime [description]
+	 * [_calculateTotalCostTime description]
+	 * @param  {moment} fromTime [description]
+	 * @param  {moment} toTime   [description]
+	 * @param  {globalStyle.constV.MOMENT_XXX} timeType [description]
+	 * @return {[type]}          [description]
+	 */
+	_calculateTotalCostTime(fromTime, toTime, timeType) {
+		let ft = tryParseMoment(fromTime),
+			tt = tryParseMoment(toTime),
+			totalDuration = 0;
+		if (ft && tt) {
+			totalDuration = tt.diff(ft, timeType);
+		}
+		return totalDuration == 0 ? 1 : totalDuration;
+	}
+
+	/**
+	 * for now just calculate the weekend.
+	 * @param  {moment} fromTime [description]
+	 * @param  {moment} toTime   [description]
+	 * @param  {globalStyle.constV.MOMENT_XXX} timeType [description]
+	 * @return {int}          [description]
+	 */
+	_calculateOffDayTime(fromTime, toTime, timeType) {
+		let totalDuration = 0,
+			ft = tryParseMoment(fromTime),
+			tt = tryParseMoment(toTime),
+			tempDay = ft;
+		if (ft && tt) {
+			if (ft > tt) {
+				throw new Error('toTime must be greater then fromTime');
+			}
+			while (tempDay < tt) {
+				if (!this._isWorkingDay(tempDay)) {
+					switch (timeType) {
+						case gStyle.constV.MOMENT_DAYS:
+							totalDuration++;
+							break;
+						case gStyle.constV.MOMENT_HOURS:
+							totalDuration += 24;
+							break;
+						default:
+							throw new Error('The timeType is not defined in system.');
+					}
+				}
+				tempDay.add(1, gStyle.constV.MOMENT_DAYS);
+			}
+		}
+
+		return totalDuration;
+
+	}
+
+
+	/**
+	 * whether the day is weekend.
+	 * @param  {moment}  dateTime [description]
 	 * @return {Boolean}          [description]
 	 */
 	_isWeekend(dateTime) {
@@ -105,15 +132,21 @@ class ScheduleInfo extends Record({
 	}
 
 	/**
-	 * [_isWorkingDay description]
+	 * for now just judge the day is not weekend.
 	 * @param  {[type]}  dateTime [description]
 	 * @return {Boolean}          [description]
 	 */
 	_isWorkingDay(dateTime) {
-		if (_isWeekend(dateTime)) {
+		if (this._isWeekend(dateTime)) {
 			return false;
 		}
 
 		return true;
 	}
+
+	// _test(){
+	// 	this.set('ATE',moment('2016-08-01'));
+	// }
 }
+
+module.exports = ScheduleInfo;
