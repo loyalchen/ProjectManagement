@@ -38,7 +38,6 @@ class TaskCard extends Component {
             </div>
         );
     }
-
 }
 
 module.exports = TaskCard;

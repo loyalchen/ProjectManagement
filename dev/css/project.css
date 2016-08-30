@@ -1,6 +1,22 @@
-.s_gray{
-	
+.s_module_init {
+	background - color: # eeeeee;
+	width: 50 px;
+	height: 400 px;
 }
-.s_module{
-	background-color: #eeeeee
+
+.s_module_title {
+	height: 25 px;
+	width: 100% ;
+}
+
+.s_module_body {
+	height: 350 px;
+	width: 100% ;
+	overflow - x: hidden;
+	overflow - y: scroll;
+}
+
+.s_module_bottom {
+	height: 25 px;
+	width: 100% ;
 }
