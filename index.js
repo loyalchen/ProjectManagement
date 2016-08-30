@@ -21,6 +21,9 @@ htmlRouter.get('/', (ctx, next) => {
     return ctx.render('signUp');
 });
 
+htmlRouter.get('/test/:actionName',(ctx, next)=>{
+    return ctx.render(ctx.params.actionName);
+})
 
 app.use(logger());
 app.use(bodyParser());

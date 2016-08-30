@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjectManagementDesign
 {
-    public class SubItem : TimeControl
+    public class SubTask : TimeControl
     {
     }
 }
