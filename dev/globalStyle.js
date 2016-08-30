@@ -18,7 +18,9 @@ module.exports = {
 		return {
 			True: 'Yes',
 			False: 'No',
-			delimiter: '|'
+			delimiter: '|',
+			MOMENT_DAYS:'days',
+			MOMENT_HOURS:'hours'
 		}
 	}
 
