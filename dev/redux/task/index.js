@@ -6,18 +6,17 @@ import Immutable from 'immutable';
 
 let taskObj = [
     {
-        id: 1,
+        taskId: 1,
         title: 'TaskCard Test1',
         tags: ['Holly', 'Shit', 'Babe','just a test tag']
     },
     {
-        id: 2,
+        taskId: 2,
         title: 'TaskCard Test2',
         tags: ['Guy', 'Gay']
     }
 ];
 
-let lists = new Immutable.List();
 let tasks = taskObj.map(task=>{
     return new TaskInfo(task);
 })
@@ -29,14 +28,14 @@ class TaskModule extends Component {
     }
 
     render() {
-        var tasks2 = tasks.map(obj => {
+        var tasksTemp = tasks.map(obj => {
             return (
-                <TaskCard title={obj.title} tags={obj.tags} key={obj.id} />
+                <TaskCard taskInfo={obj} key={obj.taskId} />
             );
         });
         return (
             <div>
-                {tasks2}
+                {tasksTemp}
             </div>
         );
     }

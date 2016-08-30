@@ -12,7 +12,7 @@ class TaskCard extends Component {
     }
 
     render() {
-        var taskTags = this.props.tags.map(tag => {
+        var taskTags = this.props.taskInfo.get('tags').map(tag => {
             return (
                 <span className="tag" key={tag}>
                     <span className="tag-label"></span>
@@ -29,7 +29,7 @@ class TaskCard extends Component {
                 </a>
                 <div className="task-content-set">
                     <div>
-                        {this.props.title}
+                        {this.props.taskInfo.get('title')}
                     </div>
                     <div>
                         {taskTags}

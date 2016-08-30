@@ -3,14 +3,15 @@ import ScheduleInfo from './scheduleInfo';
 
 class TaskInfo extends Record({
     assignableInfo: new ScheduleInfo(),
-    title:'',
+    taskId: 0,
+    title: '',
     tags: new List([]),
     hasCompleted: false
-}){
-    constructor (props) {
+}) {
+    constructor(props) {
         super(props)
     }
-    
+
 };
 
 module.exports = TaskInfo;
