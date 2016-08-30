@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import TaskCard from '../../components/TaskCard';
 import {render} from 'react-dom';
+import TaskInfo from '../../model/taskInfo';
+import Immutable from 'immutable';
 
 let taskObj = [
     {
@@ -15,6 +17,11 @@ let taskObj = [
     }
 ];
 
+let lists = new Immutable.List();
+let tasks = taskObj.map(task=>{
+    return new TaskInfo(task);
+})
+
 class TaskModule extends Component {
     constructor(props) {
         super(props);
@@ -22,14 +29,14 @@ class TaskModule extends Component {
     }
 
     render() {
-        var tasks = taskObj.map(obj => {
+        var tasks2 = tasks.map(obj => {
             return (
                 <TaskCard title={obj.title} tags={obj.tags} key={obj.id} />
             );
         });
         return (
             <div>
-                {tasks}
+                {tasks2}
             </div>
         );
     }
