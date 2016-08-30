@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjectManagementDesign
 {
-    public class Item : TimeControl, IAssignableTask
+    public class Task : TimeControl, IAssignable
     {
         public DateTime ChargeFrom
         {
@@ -112,7 +112,7 @@ namespace ProjectManagementDesign
             }
         }
 
-        public IEnumerable<SubItem> SubItems
+        public IEnumerable<SubTask> SubItems
         {
             get
             {
@@ -121,6 +121,26 @@ namespace ProjectManagementDesign
 
             set
             {
+            }
+        }
+
+        public string Tag {
+            get {
+                throw new NotImplementedException();
+            }
+
+            set {
+                throw new NotImplementedException();
+            }
+        }
+
+        public string Title {
+            get {
+                throw new NotImplementedException();
+            }
+
+            set {
+                throw new NotImplementedException();
             }
         }
     }
