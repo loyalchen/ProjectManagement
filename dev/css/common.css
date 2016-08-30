@@ -8,7 +8,10 @@
     width: 265px;
     margin: 0px 8px 8px;
 }
-
+.task.task-card.done{
+    background-color: #f8f8f8;
+    color: #b3b3b3;
+}
 .task .check-box {
     width: 20px;
     height: 20px;
@@ -31,28 +34,27 @@
     cursor: pointer;
 }
 
+.task.task-card .glyphicon{
+    color: #b3b3b3;
+    font-size: 13px;
+}
+
 .task.task-card .check-box {
     margin: 14px 12px 0 14px;
 }
 
 .task .check-box .icon-tick {
-    visibility: hidden;
+    visibility: visible;
     color: #b3b3b3;
     font-size: 13px;
-    -webkit-transform: translate(2px,-1px);
-    transform: translate(2px,-1px);
+    /*-webkit-transform: translate(2px,-1px);
+    transform: translate(2px,-1px);*/
+    text-align: center;
 }
 
+
 .icon {
-    font-stretch: normal;
-    text-rendering: auto;
-    -moz-osx-font-smoothing: grayscale;
-    font-family: Teambition-UI-Icons!important;
-    font-weight: 400;
-    font-variant: normal;
-    text-transform: none;
-    speak: none;
-    -webkit-font-smoothing: antialiased;
+    display: inline-block;
 }
 .task-content-set .tag{
     height: 20px;
@@ -72,3 +74,4 @@
     height: 6px;
     border-radius: 3px;
 }
+
