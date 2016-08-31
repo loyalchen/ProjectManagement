@@ -8,7 +8,7 @@ class AssignableInfo extends Record({
 	chargeFrom:null,
 	chargeTo:null,
 	formerChargeFrom:null,
-	formerChargeTo:null
+	formerChargeTo:null,
 	scheduleInfo: new ScheduleInfo()
 }){
 
