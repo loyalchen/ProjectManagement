@@ -1,45 +1,16 @@
 import React, {Component} from 'react';
-import TaskCard from '../../components/TaskCard';
+import { createStore, applyMiddleware  } from 'redux';
+import TaskModule from './containers/taskModule';
 import {render} from 'react-dom';
-import TaskInfo from '../../model/taskInfo';
-import Immutable from 'immutable';
+import ReduxThunk from 'redux-thunk';
+import { Provider } from 'react-redux';
+import taskReducer from './reducer';
 
-let taskObj = [
-    {
-        taskId: 1,
-        title: 'TaskCard Test1',
-        tags: ['Holly', 'Shit', 'Babe','just a test tag']
-    },
-    {
-        taskId: 2,
-        title: 'TaskCard Test2',
-        tags: ['Guy', 'Gay']
-    }
-];
+let store = createStore(taskReducer,applyMiddleware(ReduxThunk));
 
-let tasks = taskObj.map(task=>{
-    return new TaskInfo(task);
-})
-
-class TaskModule extends Component {
-    constructor(props) {
-        super(props);
-
-    }
-
-    render() {
-        var tasksTemp = tasks.map(obj => {
-            return (
-                <TaskCard taskInfo={obj} key={obj.taskId} />
-            );
-        });
-        return (
-            <div>
-                {tasksTemp}
-            </div>
-        );
-    }
-
-}
-
-render(<TaskModule />, document.getElementById('content'));
+render(
+    <Provider store={store}>
+        <TaskModule />
+    </Provider>,
+    document.getElementById('content')
+);
