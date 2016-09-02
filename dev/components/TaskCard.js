@@ -29,8 +29,13 @@ class TaskCard extends Component {
                     {isCompleted}
                 </a>
                 <div className="task-content-set">
-                    <div>
-                        {title}
+                    <div className="task-content-wrapper">
+                        <div className="task-content">
+                            {title}
+                        </div>
+                        <div className="avatar">
+                            <span className="label label-default">Jason</span>
+                        </div>
                     </div>
                     <div>
                         {taskTags}

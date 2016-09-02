@@ -14,7 +14,7 @@ class TaskModule extends Component {
             );
         });
         return (
-            <div>
+            <div style={{width:'288px'}}>
                 {tasksTemp}
             </div>
         );

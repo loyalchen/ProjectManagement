@@ -5,7 +5,7 @@ import constant from './constant';
 let taskList = [
     {
         taskId: 1,
-        title: 'TaskCard Test1',
+        title: 'TaskCard Test11111111111111111111111111111111111111',
         tags: ['Holly', 'Shit', 'Babe', 'just a test tag'],
         hasCompleted: false
     },
